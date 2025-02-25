@@ -6,6 +6,8 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  annotation: 
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   destination:
     namespace: httpbin

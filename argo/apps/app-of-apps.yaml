@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: httpbin
+  name: 
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,11 +10,11 @@ metadata:
     argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   destination:
-    namespace: httpbin
+    namespace: 
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'git@github.com:ky-rafaels/image-updater.git'
-    path: httpbin/
+    path: 
     targetRevision: main
   sources: []
   project: default

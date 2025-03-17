@@ -2,18 +2,18 @@ crds:
   enabled: true
 image:
   repository: cgr.dev/ky-rafaels.example.com/cert-manager-controller
-  tag: 1.17.1
+  tag: 1.17
   pullPolicy: IfNotPresent
 webhook:
   image:
     repository: cgr.dev/ky-rafaels.example.com/cert-manager-webhook
-    tag: 1.17.1
+    tag: 1.17
     pullPolicy: IfNotPresent
 cainjector:
   enabled: true
   image: 
     repository: cgr.dev/ky-rafaels.example.com/cert-manager-cainjector
-    tag: 1.17.1
+    tag: 1.17
     pullPolicy: IfNotPresent
 startupapicheck:
   enabled: false

@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 
+  name: cert-manager
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,12 +10,19 @@ metadata:
     argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   destination:
-    namespace: 
+    namespace: cert-manager
     server: 'https://kubernetes.default.svc'
-  source:
-    repoURL: 'git@github.com:ky-rafaels/image-updater.git'
-    path: 
+  sources:
+  - repoURL: https://charts.jetstack.io
+    chart: cert-manager 
+    targetRevision: v1.17.1
+    helm:
+      ignoreMissingValueFiles: true
+      valueFiles:
+        - $values/k8s/cert-manager/custom-values.yaml
+  - repoURL: git@github.com:ky-rafaels/image-updater.git
     targetRevision: main
+    ref: values
   sources: []
   project: default
   syncPolicy:

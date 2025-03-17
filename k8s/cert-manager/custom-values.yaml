@@ -1,19 +1,19 @@
 crds:
   enabled: true
 image:
-  repository: docker.io/chainguard/cert-manager-controller
-  tag: latest
+  repository: cgr.dev/ky-rafaels.example.com/cert-manager-controller
+  tag: 1.17.1
   pullPolicy: IfNotPresent
 webhook:
   image:
-    repository: docker.io/chainguard/cert-manager-webhook
-    tag: latest
+    repository: cgr.dev/ky-rafaels.example.com/cert-manager-webhook
+    tag: 1.17.1
     pullPolicy: IfNotPresent
 cainjector:
   enabled: true
   image: 
-    repository: docker.io/chainguard/cert-manager-cainjector
-    tag: latest
+    repository: cgr.dev/ky-rafaels.example.com/cert-manager-cainjector
+    tag: 1.17.1
     pullPolicy: IfNotPresent
 startupapicheck:
   enabled: false

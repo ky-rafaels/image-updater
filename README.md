@@ -14,6 +14,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argoc
 
 ## Directory tree
 
+```bash
 ├── README.md
 ├── argo
 │   ├── apps                    # ArgoCD app manifests
@@ -24,6 +25,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argoc
 ├── k8s
     └── cert-manager
         └── custom-values.yaml  # Helm values file
+```
 
 ## Example Application Resource
 

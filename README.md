@@ -56,7 +56,7 @@ metadata:
     argocd-image-updater.argoproj.io/git-repository: https://github.com/ky-rafaels/image-updater.git
     argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/git-branch: main
-    pullsecret:argocd/dockerhub-secret
+    pullsecret:argocd/ky-rafaels-pull-secret
     # Optionally use git write back strategy
     # argocd-image-updater.argoproj.io/write-back-method: git
     # regexp below specifies version tagging in 0.0.0 format

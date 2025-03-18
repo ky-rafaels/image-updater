@@ -7,4 +7,4 @@ resources:
 images:
 - name: quay.io/argoprojlabs/argocd-image-updater:v0.15.2
   newName: cgr.dev/ky-rafaels.example.com/argocd-image-updater
-  newTag: v0.15.2 
+  newTag: 0.15.2 

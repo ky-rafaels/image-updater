@@ -5,10 +5,17 @@ metadata:
   name: cert-manager
   namespace: argocd
   annotations: 
-    argocd-image-updater.argoproj.io/image-list: myalias=cgr.dev/ky-rafaels.example.com/
-    argocd-image-updater.argoproj.io/myalias.update-strategy: digest
-    argocd-image-updater.argoproj.io/myalias.allow-tags: regexp:^1\.[0-9]+\.[0-9]+$
-    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: controller=cgr.dev/ky-rafaels.example.com/cert-manager-controller, webhook=cgr.dev/ky-rafafels.example.com/cert-manager-webhook, cainjector=cgr.dev/ky-rafaels.example.com/cert-manager-cainjector
+    argocd-image-updater.argoproj.io/cert-manager.update-strategy: digest
+    argocd-image-updater.argoproj.io/controller.helm.image-name: image.repository
+    argocd-image-updater.argoproj.io/controller.helm.image-tag: image.tag
+    argocd-image-updater.argoproj.io/webhook.helm.image-name: webhook.image.repository
+    argocd-image-updater.argoproj.io/webhook.helm.image-tag: webhook.image.tag
+    argocd-image-updater.argoproj.io/cainjector.helm.image-name: cainjector.image.repository
+    argocd-image-updater.argoproj.io/cainjector.helm.image-tag: cainjector.image.tag
+    # argocd-image-updater.argoproj.io/myalias.allow-tags: regexp:^1\.[0-9]+\.[0-9]+$
+    argocd-image-updater.argoproj.io/git-repository: https://github.com/ky-rafaels/image-updater.git
+    argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
   destination:

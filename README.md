@@ -29,6 +29,14 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argoc
 
 ## Example Application Resource
 
+Create a secret 
+```bash
+k create secret generic ky-rafaels-pull-secret \
+--from-file=.dockerconfigjson=/Users/kyle.rafaels/.docker/config.json \
+--type=kubernetes.io/dockerconfigjson -n argocd
+```
+
+Reference pull secret in annotation 
 ```yaml
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -48,6 +56,7 @@ metadata:
     argocd-image-updater.argoproj.io/git-repository: https://github.com/ky-rafaels/image-updater.git
     argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/git-branch: main
+    pullsecret:argocd/dockerhub-secret
     # Optionally use git write back strategy
     # argocd-image-updater.argoproj.io/write-back-method: git
     # regexp below specifies version tagging in 0.0.0 format
@@ -76,4 +85,13 @@ spec:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
       - ServerSideApply=true
+```
+
+## Using cgr private registry
+
+Create a secret 
+```bash
+k create secret generic ky-rafaels-pull-secret \
+--from-file=.dockerconfigjson=/Users/kyle.rafaels/.docker/config.json \
+--type=kubernetes.io/dockerconfigjson -n argocd
 ```

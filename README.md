@@ -55,6 +55,8 @@ cat << EOF > registry.yaml
           defaultns: library
           default: true
 EOF
+
+k apply -f registry.yaml
 ```
 
 Reference pull secret in annotation 
@@ -105,13 +107,4 @@ spec:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
       - ServerSideApply=true
-```
-
-## Using cgr private registry
-
-Create a secret 
-```bash
-k create secret generic ky-rafaels-pull-secret \
---from-file=.dockerconfigjson=/Users/kyle.rafaels/.docker/config.json \
---type=kubernetes.io/dockerconfigjson -n argocd
 ```

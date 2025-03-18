@@ -2,18 +2,21 @@ crds:
   enabled: true
 image:
   repository: cgr.dev/ky-rafaels.example.com/cert-manager-controller
-  tag: "1.17.1"
+  # tag: "1.17.1"
+  digest: "sha256:7b6e9da5b01a5336526faddddb631d4c209dbeea88c60c1a1ce5e81ef9d03d57"
   pullPolicy: IfNotPresent
 webhook:
   image:
     repository: cgr.dev/ky-rafaels.example.com/cert-manager-webhook
-    tag: "1.17.1"
+    # tag: "1.17.1"
+    digest: "sha256:94ad1e0df9cb96e0eb558e43b55b58ac0d967e0dbdefd2810bb02aa797d66ae5"
     pullPolicy: IfNotPresent
 cainjector:
   enabled: true
   image: 
     repository: cgr.dev/ky-rafaels.example.com/cert-manager-cainjector
-    tag: "1.17.1"
+    # tag: "1.17.1"
+    digest: "sha256:27d2eda2297156f2e37881a087eb64c334a546681855b345f7b958a39241c3b3"
     pullPolicy: IfNotPresent
 startupapicheck:
   enabled: false

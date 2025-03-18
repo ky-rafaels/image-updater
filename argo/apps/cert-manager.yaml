@@ -13,10 +13,13 @@ metadata:
     argocd-image-updater.argoproj.io/webhook.helm.image-tag: webhook.image.tag
     argocd-image-updater.argoproj.io/cainjector.helm.image-name: cainjector.image.repository
     argocd-image-updater.argoproj.io/cainjector.helm.image-tag: cainjector.image.tag
-    # argocd-image-updater.argoproj.io/myalias.allow-tags: regexp:^1\.[0-9]+\.[0-9]+$
     argocd-image-updater.argoproj.io/git-repository: https://github.com/ky-rafaels/image-updater.git
     argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/git-branch: main
+    # Optionally use git write back strategy
+    # argocd-image-updater.argoproj.io/write-back-method: git
+    # regexp below specifies version tagging in 0.0.0 format
+    # argocd-image-updater.argoproj.io/myalias.allow-tags: regexp:^1\.[0-9]+\.[0-9]+$
 spec:
   destination:
     namespace: cert-manager

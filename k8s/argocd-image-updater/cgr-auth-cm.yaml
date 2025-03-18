@@ -9,6 +9,6 @@ data:
     - name: Chainguard
       prefix: cgr.dev
       api_url: https://cgr.dev
-      credentials: secret:argocd/ky-rafaels-pull-secret
+      credentials: pullsecret:argocd/ky-rafaels-pull-secret
       defaultns: library
       default: true

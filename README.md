@@ -36,6 +36,27 @@ k create secret generic ky-rafaels-pull-secret \
 --type=kubernetes.io/dockerconfigjson -n argocd
 ```
 
+Create a registry configMap 
+```bash
+cat << EOF > registry.yaml
+    ---
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+    name: argocd-image-updater-config
+    namespace: argocd
+    data:
+    registries.conf: |
+        registries:
+        - name: Chainguard
+          prefix: cgr.dev
+          api_url: https://cgr.dev
+          credentials: pullsecret:argocd/ky-rafaels-pull-secret
+          defaultns: library
+          default: true
+EOF
+```
+
 Reference pull secret in annotation 
 ```yaml
 ---
@@ -56,7 +77,6 @@ metadata:
     argocd-image-updater.argoproj.io/git-repository: https://github.com/ky-rafaels/image-updater.git
     argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/git-branch: main
-    pullsecret:argocd/ky-rafaels-pull-secret
     # Optionally use git write back strategy
     # argocd-image-updater.argoproj.io/write-back-method: git
     # regexp below specifies version tagging in 0.0.0 format
